@@ -1,0 +1,18 @@
+[
+  {
+    "id": "skingenius",
+    "title": "Skingenius – AI Skincare Recommender",
+    "tags": "beautytech • ai",
+    "thumb": "/teasers/skingenius.jpg",
+    "summary": "Redesigned onboarding & quiz flow → +30% engagement.",
+    "href": "/projects/skingenius"
+  },
+  {
+    "id": "nomad",
+    "title": "Nomad AI – SMB Valuation SaaS",
+    "tags": "fintech • ai",
+    "thumb": "/teasers/nomad.jpg",
+    "summary": "Dynamic pricing engine projected 42% lift in conversions.",
+    "href": "/projects/nomad"
+  }
+]
