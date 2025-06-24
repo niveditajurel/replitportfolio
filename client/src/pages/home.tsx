@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Hero } from "@/components/Hero";
+import ProjectsPreview from "@/components/ProjectsPreview";
 import { 
   ArrowRight, 
   Brain, 
@@ -75,6 +76,9 @@ export default function Home() {
     <div className="min-h-screen">
       {/* Hero Section */}
       <Hero />
+
+      {/* Projects Preview Section */}
+      <ProjectsPreview />
 
       {/* About Preview Section */}
       <motion.section 
