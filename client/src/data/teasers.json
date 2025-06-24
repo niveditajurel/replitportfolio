@@ -1,18 +1,18 @@
 [
   {
-    "id": "skingenius",
-    "title": "Skingenius – AI Skincare Recommender",
-    "tags": "beautytech • ai",
-    "thumb": "/teasers/skingenius.jpg",
-    "summary": "Redesigned onboarding & quiz flow → +30% engagement.",
-    "href": "/projects/skingenius"
+    "id": "corti",
+    "title": "Corti.ai – Healthcare AI Assistant",
+    "tags": "medtech, ai",
+    "thumb": "/teasers/corti.jpg",
+    "summary": "Corti is a healthcare AI company that builds specialized language models to support medical professionals in real time.",
+    "href": "/projects/corti"
   },
   {
-    "id": "nomad",
-    "title": "Nomad AI – SMB Valuation SaaS",
-    "tags": "fintech • ai",
-    "thumb": "/teasers/nomad.jpg",
-    "summary": "Dynamic pricing engine projected 42% lift in conversions.",
-    "href": "/projects/nomad"
+    "id": "zapo",
+    "title": "Zapo – Team Management SaaS",
+    "tags": "b2b, SaaS",
+    "thumb": "/teasers/zapo.jpg",
+    "summary": "There's a product case study as well. Feel free to get in touch to check it out.",
+    "href": "/projects/zapo"
   }
 ]
