@@ -109,16 +109,16 @@ This is a modern, personality-rich portfolio website for an early-career Product
 ## Recent Changes
 
 ```
-✓ Added hover-reveal ProjectsPreview section with sliding overlay animations
-✓ Created projectsPreview.json data file with two featured work examples
-✓ Implemented Card components with Framer Motion spring transitions
-✓ Added thumbnail placeholders for Skingenius and Nomad AI projects
-✓ Integrated ProjectsPreview into home page below Hero section
-✓ Used ink/base color scheme with proper dark mode support
-✓ Added accessibility features with focus rings and alt text
-→ Content expansion and case study preparation
+✓ Hero ✨ vibrant glows + scroll cue (hellodani style)
+✓ Replaced background with radial-gradient glows using slowPulse animations
+✓ Added playful scroll indicator with animated dot at bottom center
+✓ Enhanced headline with hover effects - "product strategy" changes to flair color
+✓ Button micro-motion with diagonal-slide arrows on hover
+✓ Added mint color (#4ADE80) to palette for future subtle highlights
+✓ Wrapped Hero in isolate container for proper layering
+→ Performance optimization and content refinement
 
-June 24, 2025 - Add hover-reveal ProjectsPreview section (tiny fraction of my work)
+June 24, 2025 - Hero ✨ vibrant glows + scroll cue (hellodani style)
 ```
 
 ## User Preferences
