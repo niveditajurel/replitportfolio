@@ -89,10 +89,8 @@ export function Hero() {
     <section className="relative isolate overflow-hidden py-40 bg-base dark:bg-ink text-ink dark:text-base min-h-screen flex items-center">
       {/* Glow #1 - top left */}
       <div className="absolute -top-56 -left-48 w-[580px] h-[580px] rounded-full bg-[radial-gradient(circle_at_center,rgba(91,141,239,0.35)_0%,transparent_70%)] blur-[120px] animate-slowPulse pointer-events-none" />
-      
       {/* Glow #2 - bottom right */}
       <div className="absolute bottom-[-220px] right-[-260px] w-[680px] h-[680px] rounded-full bg-[radial-gradient(circle_at_center,rgba(248,150,118,0.35)_0%,transparent_70%)] blur-[140px] animate-slowPulseReverse pointer-events-none" />
-      
       <div className="container mx-auto relative z-10 px-4 sm:px-6 lg:px-8" ref={ref}>
         <motion.div
           variants={containerVariants}
@@ -150,7 +148,7 @@ export function Hero() {
             <div className="flex flex-col sm:flex-row gap-6">
               <Link href="/projects">
                 <button 
-                  className="group inline-flex items-center gap-2 px-7 py-3 rounded-full bg-accent text-base font-semibold shadow-lg hover:shadow-xl transition cursor-glow hover-glow focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
+                  className="group inline-flex items-center gap-2 px-7 py-3 rounded-full bg-accent text-base shadow-lg hover:shadow-xl transition cursor-glow hover-glow focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 text-[#282f30] font-medium"
                   onClick={handleExploreWork}
                   aria-label="Explore my portfolio projects"
                 >
@@ -176,7 +174,6 @@ export function Hero() {
           </motion.div>
         </motion.div>
       </div>
-
       {/* Scroll cue */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-ink/60 dark:text-base/60">
         <div className="w-[22px] h-[38px] rounded-xl border border-current flex justify-center">
