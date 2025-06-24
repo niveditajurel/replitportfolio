@@ -2,7 +2,8 @@ import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import { useTheme } from "@/components/ThemeProvider";
-import { Moon, Sun, Menu, X, Download, Mail } from "lucide-react";
+import { Moon, Sun, Menu, X, Download } from "lucide-react";
+import { trackEvent } from "@/utils/analytics";
 
 const navItems = [
   { name: "Home", href: "/" },
@@ -28,8 +29,7 @@ export function Navigation() {
   }, []);
 
   const handleDownloadResume = () => {
-    // Track resume download
-    console.log("Resume download tracked");
+    trackEvent("Download Resume - Navigation");
     // Implement actual download logic here
   };
 
@@ -79,7 +79,8 @@ export function Navigation() {
               variant="ghost"
               size="sm"
               onClick={() => setTheme(theme === "light" ? "dark" : "light")}
-              className="hover-glow"
+              className="cursor-glow hover-glow focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+              aria-label={theme === "light" ? "Switch to dark mode" : "Switch to light mode"}
             >
               {theme === "light" ? (
                 <Moon className="h-4 w-4" />
@@ -92,7 +93,8 @@ export function Navigation() {
             <Button
               size="sm"
               onClick={handleDownloadResume}
-              className="hidden sm:flex items-center space-x-2 hover-glow bg-primary text-primary-foreground hover:bg-primary/90"
+              className="hidden sm:flex items-center space-x-2 cursor-glow hover-glow bg-primary text-primary-foreground hover:bg-primary/90 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+              aria-label="Download resume PDF"
             >
               <Download className="h-4 w-4" />
               <span>Resume</span>
@@ -136,7 +138,8 @@ export function Navigation() {
                 <Button
                   size="sm"
                   onClick={handleDownloadResume}
-                  className="w-full flex items-center justify-center space-x-2 hover-glow"
+                  className="w-full flex items-center justify-center space-x-2 cursor-glow hover-glow focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+                  aria-label="Download resume PDF"
                 >
                   <Download className="h-4 w-4" />
                   <span>Download Resume</span>

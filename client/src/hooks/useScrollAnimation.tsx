@@ -59,9 +59,20 @@ export function useCursorGlow() {
       element.style.setProperty("--mouse-y", `${y}%`);
     };
 
-    element.addEventListener("mousemove", handleMouseMove);
+    const handleMouseEnter = () => {
+      element.addEventListener("mousemove", handleMouseMove);
+    };
+
+    const handleMouseLeave = () => {
+      element.removeEventListener("mousemove", handleMouseMove);
+    };
+
+    element.addEventListener("mouseenter", handleMouseEnter);
+    element.addEventListener("mouseleave", handleMouseLeave);
 
     return () => {
+      element.removeEventListener("mouseenter", handleMouseEnter);
+      element.removeEventListener("mouseleave", handleMouseLeave);
       element.removeEventListener("mousemove", handleMouseMove);
     };
   }, []);
