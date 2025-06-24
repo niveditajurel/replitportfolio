@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { ArrowRight, Download, Sparkles } from 'lucide-react';
 import { trackEvent } from '@/utils/analytics';
+import { FloatingShapes, FloatingTechIcons } from './FloatingElements';
 
 const typewriterTexts = [
   "0→1 Thinker",
@@ -89,8 +90,34 @@ export function Hero() {
     <section className="relative isolate overflow-hidden py-40 bg-base dark:bg-ink text-ink dark:text-base min-h-screen flex items-center">
       {/* Glow #1 - top left */}
       <div className="absolute -top-56 -left-48 w-[580px] h-[580px] rounded-full bg-[radial-gradient(circle_at_center,rgba(91,141,239,0.35)_0%,transparent_70%)] blur-[120px] animate-slowPulse pointer-events-none" />
+      
       {/* Glow #2 - bottom right */}
       <div className="absolute bottom-[-220px] right-[-260px] w-[680px] h-[680px] rounded-full bg-[radial-gradient(circle_at_center,rgba(248,150,118,0.35)_0%,transparent_70%)] blur-[140px] animate-slowPulseReverse pointer-events-none" />
+      
+      {/* Floating organic shapes */}
+      <FloatingShapes />
+      
+      {/* Floating tech icons */}
+      <FloatingTechIcons />
+      
+      {/* Right-side data ring animation */}
+      <svg
+        className="hidden lg:block absolute top-12 right-8 w-[420px] h-[420px] opacity-40 dark:opacity-60 pointer-events-none"
+        viewBox="0 0 200 200"
+      >
+        <defs>
+          <radialGradient id="ring" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stopColor="transparent" />
+            <stop offset="100%" stopColor="currentColor" />
+          </radialGradient>
+        </defs>
+        <circle
+          cx="100" cy="100" r="92"
+          fill="none" stroke="url(#ring)" strokeWidth="0.8"
+          strokeDasharray="3 6"
+          className="animate-spin-slow"
+        />
+      </svg>
       <div className="container mx-auto relative z-10 px-4 sm:px-6 lg:px-8" ref={ref}>
         <motion.div
           variants={containerVariants}

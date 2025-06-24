@@ -7,6 +7,8 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Hero } from "@/components/Hero";
 import WorkTeasers from "@/components/WorkTeasers";
+import TechSkills from "@/components/TechSkills";
+import ProductPhilosophy from "@/components/ProductPhilosophy";
 import { 
   ArrowRight, 
   Brain, 
@@ -272,6 +274,8 @@ export default function Home() {
         </div>
       </motion.section>
       <WorkTeasers />
+      <TechSkills />
+      <ProductPhilosophy />
     </div>
   );
 }
