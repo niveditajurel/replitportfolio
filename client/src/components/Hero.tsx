@@ -148,7 +148,7 @@ export function Hero() {
             <div className="flex flex-col sm:flex-row gap-6">
               <Link href="/projects">
                 <button 
-                  className="group inline-flex items-center gap-2 px-7 py-3 rounded-full bg-accent text-base shadow-lg hover:shadow-xl transition cursor-glow hover-glow focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 text-[#282f30] font-medium"
+                  className="group inline-flex items-center gap-2 px-7 py-3 rounded-full text-base shadow-lg hover:shadow-xl transition cursor-glow hover-glow focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 font-medium bg-[#242424] text-[#d6d6d6]"
                   onClick={handleExploreWork}
                   aria-label="Explore my portfolio projects"
                 >
