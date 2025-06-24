@@ -11,6 +11,10 @@ export default {
         sm: "calc(var(--radius) - 4px)",
       },
       colors: {
+        base: '#F5F7FA',
+        ink: '#0F172A',
+        accent: '#5B8DEF',
+        flair: '#F89676',
         background: "var(--background)",
         foreground: "var(--foreground)",
         card: {

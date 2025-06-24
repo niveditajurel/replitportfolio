@@ -86,105 +86,83 @@ export function Hero() {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-background via-primary/5 to-background overflow-hidden">
-      {/* Background decorative elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <motion.div 
-          className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl"
-          animate={{
-            y: [0, -20, 0],
-            x: [0, 10, 0],
-          }}
-          transition={{
-            duration: 6,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
-        />
-        <motion.div 
-          className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-primary/5 rounded-full blur-2xl"
-          animate={{
-            y: [0, 20, 0],
-            x: [0, -10, 0],
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 2
-          }}
-        />
-      </div>
-
-      <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center" ref={ref}>
+    <section className="relative overflow-hidden py-32 bg-base dark:bg-ink text-ink dark:text-base min-h-screen flex items-center">
+      {/* Animated gradient blob */}
+      <div className="absolute -top-40 -left-40 w-[480px] h-[480px] bg-gradient-to-br from-accent/40 to-flair/30 rounded-full blur-3xl animate-blob" />
+      
+      <div className="container mx-auto relative z-10 grid lg:grid-cols-2 gap-12 items-center px-4 sm:px-6 lg:px-8" ref={ref}>
         <motion.div
           variants={containerVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
         >
-          <motion.div variants={itemVariants} className="mb-6">
+          {/* Text block */}
+          <motion.div variants={itemVariants}>
             <Badge 
               variant="secondary" 
-              className="mb-4 px-4 py-2 text-sm font-medium bg-primary/10 text-primary border-primary/20 cursor-glow"
+              className="mb-6 px-4 py-2 text-sm font-medium bg-accent/10 text-accent border-accent/20 cursor-glow"
             >
               <Sparkles className="w-4 h-4 mr-2" />
               Available for New Opportunities
             </Badge>
-          </motion.div>
-          
-          <motion.h1 
-            variants={itemVariants}
-            className="font-display text-5xl md:text-7xl lg:text-8xl font-bold text-foreground mb-8 leading-tight"
-          >
-            Turning empathy into{" "}
-            <span className="text-gradient">product strategy</span>
-          </motion.h1>
-          
-          <motion.div 
-            variants={itemVariants}
-            className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto mb-6 leading-relaxed"
-          >
-            <span className="inline-block min-h-[2.5rem]">
-              {displayText}
-              <span className="animate-pulse">|</span>
-            </span>
-          </motion.div>
+            
+            <h1 className="text-5xl lg:text-6xl font-semibold leading-tight mb-4">
+              Turning empathy into{" "}
+              <span className="text-accent">product&nbsp;strategy</span>
+            </h1>
 
-          <motion.p 
-            variants={itemVariants}
-            className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-12 leading-relaxed"
-          >
-            Early-career Product Manager passionate about creating digital experiences 
-            that solve real problems and delight users.
-          </motion.p>
-          
-          <motion.div 
-            variants={itemVariants}
-            className="flex flex-col sm:flex-row gap-6 justify-center"
-          >
-            <Link href="/projects">
+            {/* Typewriter */}
+            <div className="mt-4 text-xl font-medium tracking-wide mb-6">
+              <span className="inline-block min-h-[2.5rem]">
+                {displayText}
+                <span className="animate-pulse">|</span>
+              </span>
+            </div>
+
+            <p className="max-w-xl text-lg mb-10 text-muted-foreground">
+              Early-career Product Manager passionate about crafting data-driven experiences that delight users and drive growth.
+            </p>
+
+            <div className="flex flex-col sm:flex-row gap-6">
+              <Link href="/projects">
+                <Button 
+                  size="lg" 
+                  className="group relative inline-flex items-center gap-2 px-8 py-4 text-lg rounded-full bg-accent text-base hover:shadow-lg transition-all duration-200 font-semibold cursor-glow hover-glow focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
+                  onClick={handleExploreWork}
+                  aria-label="Explore my portfolio projects"
+                >
+                  Explore My Work
+                  <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </Link>
+              
               <Button 
                 size="lg" 
-                className="group relative inline-flex items-center px-8 py-4 text-lg cursor-glow hover-glow bg-primary text-primary-foreground hover:bg-primary/90 transform hover:scale-105 transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
-                onClick={handleExploreWork}
-                aria-label="Explore my portfolio projects"
+                variant="outline" 
+                className="inline-flex items-center gap-2 px-8 py-4 text-lg rounded-full border border-ink/40 dark:border-base/40 hover:bg-ink/5 dark:hover:bg-base/10 transition-all duration-200 cursor-glow hover-glow focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
+                onClick={handleDownloadResume}
+                aria-label="Download my resume PDF"
               >
-                Explore My Work
-                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                <Download className="w-5 h-5" />
+                Download Resume
               </Button>
-            </Link>
-            
-            <Button 
-              size="lg" 
-              variant="outline" 
-              className="inline-flex items-center px-8 py-4 text-lg cursor-glow hover-glow border-border/50 bg-background/50 backdrop-blur-sm hover:bg-muted/50 transform hover:scale-105 transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
-              onClick={handleDownloadResume}
-              aria-label="Download my resume PDF"
-            >
-              <Download className="mr-2 h-5 w-5" />
-              Download Resume
-            </Button>
+            </div>
           </motion.div>
+        </motion.div>
+
+        {/* Profile photo */}
+        <motion.div
+          variants={itemVariants}
+          className="flex justify-center lg:justify-end"
+        >
+          <div className="relative">
+            <div className="absolute inset-0 bg-gradient-to-br from-accent/20 to-flair/20 rounded-full blur-2xl transform scale-110"></div>
+            <img
+              src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face"
+              alt="Alex Chen profile"
+              className="relative w-64 h-64 lg:w-80 lg:h-80 rounded-full object-cover shadow-2xl"
+            />
+          </div>
         </motion.div>
       </div>
     </section>

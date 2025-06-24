@@ -2,8 +2,8 @@ import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import { useTheme } from "@/components/ThemeProvider";
-import { Moon, Sun, Menu, X, Download } from "lucide-react";
-import { trackEvent } from "@/utils/analytics";
+import { Moon, Sun, Menu, X } from "lucide-react";
+import { FaLinkedin, FaGithub, FaTwitter } from "react-icons/fa";
 
 const navItems = [
   { name: "Home", href: "/" },
@@ -28,10 +28,7 @@ export function Navigation() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const handleDownloadResume = () => {
-    trackEvent("Download Resume - Navigation");
-    // Implement actual download logic here
-  };
+
 
   return (
     <nav
@@ -73,7 +70,38 @@ export function Navigation() {
           </div>
 
           {/* Action Buttons */}
-          <div className="flex items-center space-x-4">
+          <div className="flex items-center gap-6">
+            {/* Social Icons */}
+            <div className="hidden sm:flex items-center gap-4">
+              <a 
+                href="https://linkedin.com/in/alexchen" 
+                aria-label="LinkedIn" 
+                target="_blank" 
+                rel="noreferrer"
+                className="text-muted-foreground hover:text-accent transition-colors duration-200"
+              >
+                <FaLinkedin className="w-5 h-5" />
+              </a>
+              <a 
+                href="https://github.com/alexchen" 
+                aria-label="GitHub" 
+                target="_blank" 
+                rel="noreferrer"
+                className="text-muted-foreground hover:text-accent transition-colors duration-200"
+              >
+                <FaGithub className="w-5 h-5" />
+              </a>
+              <a 
+                href="https://twitter.com/alexchen_pm" 
+                aria-label="Twitter/X" 
+                target="_blank" 
+                rel="noreferrer"
+                className="text-muted-foreground hover:text-accent transition-colors duration-200"
+              >
+                <FaTwitter className="w-5 h-5" />
+              </a>
+            </div>
+
             {/* Theme Toggle */}
             <Button
               variant="ghost"
@@ -87,17 +115,6 @@ export function Navigation() {
               ) : (
                 <Sun className="h-4 w-4" />
               )}
-            </Button>
-
-            {/* Resume Download */}
-            <Button
-              size="sm"
-              onClick={handleDownloadResume}
-              className="hidden sm:flex items-center space-x-2 cursor-glow hover-glow bg-primary text-primary-foreground hover:bg-primary/90 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
-              aria-label="Download resume PDF"
-            >
-              <Download className="h-4 w-4" />
-              <span>Resume</span>
             </Button>
 
             {/* Mobile Menu Toggle */}
@@ -135,15 +152,35 @@ export function Navigation() {
                 </Link>
               ))}
               <div className="pt-2 border-t border-border/50">
-                <Button
-                  size="sm"
-                  onClick={handleDownloadResume}
-                  className="w-full flex items-center justify-center space-x-2 cursor-glow hover-glow focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
-                  aria-label="Download resume PDF"
-                >
-                  <Download className="h-4 w-4" />
-                  <span>Download Resume</span>
-                </Button>
+                <div className="flex justify-center gap-6 py-4">
+                  <a 
+                    href="https://linkedin.com/in/alexchen" 
+                    aria-label="LinkedIn" 
+                    target="_blank" 
+                    rel="noreferrer"
+                    className="text-muted-foreground hover:text-accent transition-colors duration-200"
+                  >
+                    <FaLinkedin className="w-6 h-6" />
+                  </a>
+                  <a 
+                    href="https://github.com/alexchen" 
+                    aria-label="GitHub" 
+                    target="_blank" 
+                    rel="noreferrer"
+                    className="text-muted-foreground hover:text-accent transition-colors duration-200"
+                  >
+                    <FaGithub className="w-6 h-6" />
+                  </a>
+                  <a 
+                    href="https://twitter.com/alexchen_pm" 
+                    aria-label="Twitter/X" 
+                    target="_blank" 
+                    rel="noreferrer"
+                    className="text-muted-foreground hover:text-accent transition-colors duration-200"
+                  >
+                    <FaTwitter className="w-6 h-6" />
+                  </a>
+                </div>
               </div>
             </div>
           </div>

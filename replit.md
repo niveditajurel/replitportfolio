@@ -18,8 +18,8 @@ This is a modern, personality-rich portfolio website for an early-career Product
 - **Icons**: Lucide React for consistent iconography
 
 ### Portfolio Features
-- **Navigation**: Sticky navigation with smooth scrolling and mobile menu
-- **Hero Section**: Bold typography with floating animations and gradient backgrounds
+- **Navigation**: Sticky navigation with social icons (LinkedIn, GitHub, Twitter) and theme toggle
+- **Hero Section**: Two-column layout with typewriter animation, profile photo, and animated gradient blob
 - **Interactive Elements**: Cursor glow effects, hover animations, and scroll reveals
 - **Project Showcase**: Expandable case studies with metrics and detailed process documentation
 - **Experience Timeline**: Professional experience with achievements and skill tags
@@ -27,9 +27,13 @@ This is a modern, personality-rich portfolio website for an early-career Product
 - **Responsive Design**: Mobile-first approach with optimized layouts for all devices
 
 ### Design System
-- **Primary Color**: #2E86AB (hsl(199 89% 48%)) - Portfolio accent color
+- **Color Palette**: 
+  - Base: #F5F7FA (very light gray background)
+  - Ink: #0F172A (almost-black for text)
+  - Accent: #5B8DEF (soft blue primary)
+  - Flair: #F89676 (warm salmon highlight)
 - **Typography Scale**: Display headings with Playfair Display, body text with DM Sans
-- **Animation Library**: Custom CSS animations with scroll-triggered visibility
+- **Animation Library**: Custom CSS animations including animated blob with keyframes
 - **Component System**: Reusable cards, buttons, and layout components
 - **Dark Mode**: Comprehensive theme support with automatic system detection
 
@@ -104,16 +108,16 @@ This is a modern, personality-rich portfolio website for an early-career Product
 ## Recent Changes
 
 ```
-✓ Hero section refactored into standalone component with typewriter animation
-✓ Enhanced dark/light mode toggle with useDarkMode hook and localStorage persistence
-✓ Framer Motion integration for smooth scroll-triggered animations
-✓ Cursor glow effects with radial gradient following mouse movement
-✓ Analytics tracking system with trackEvent utility for CTA interactions
-✓ Comprehensive accessibility improvements (aria-labels, focus rings)
-✓ Micro-interactions with hover scale effects and smooth transitions
+✓ Fresh color palette implemented (base, ink, accent, flair colors)
+✓ Navigation updated with social icons replacing resume download
+✓ Hero redesigned with two-column layout and profile photo
+✓ Animated gradient blob added with CSS keyframes
+✓ Resume download moved to Hero CTA section
+✓ React Icons library integrated for social platform icons
+✓ Enhanced visual hierarchy with new color system
 → Content refinement and performance optimization
 
-June 24, 2025 - Deep polish pass on Hero section and global UX enhancements
+June 24, 2025 - Color palette refresh, social nav icons, and hero visual overhaul
 ```
 
 ## User Preferences
