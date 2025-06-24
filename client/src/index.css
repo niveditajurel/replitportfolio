@@ -132,6 +132,24 @@
     }
   }
   
+  .animate-pulse-line {
+    animation: pulse-line 20s infinite linear;
+  }
+  
+  @keyframes pulse-line {
+    0% {
+      stroke-dashoffset: 0;
+      opacity: 0.1;
+    }
+    50% {
+      opacity: 0.3;
+    }
+    100% {
+      stroke-dashoffset: -32;
+      opacity: 0.1;
+    }
+  }
+  
   .fade-in {
     opacity: 0;
     transform: translateY(30px);

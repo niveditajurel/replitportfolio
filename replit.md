@@ -108,16 +108,16 @@ This is a modern, personality-rich portfolio website for an early-career Product
 ## Recent Changes
 
 ```
-✓ Fresh color palette implemented (base, ink, accent, flair colors)
-✓ Navigation updated with social icons replacing resume download
-✓ Hero redesigned with two-column layout and profile photo
-✓ Animated gradient blob added with CSS keyframes
-✓ Resume download moved to Hero CTA section
-✓ React Icons library integrated for social platform icons
-✓ Enhanced visual hierarchy with new color system
-→ Content refinement and performance optimization
+✓ Hero refresh: removed profile photo for cleaner, text-focused layout
+✓ Added animated data pulse line SVG with sine-wave pattern (20s loop)
+✓ Secondary gradient blob positioned in bottom-right for visual balance
+✓ Text container optimized: full-width mobile, 60% width on large screens
+✓ Enhanced spacing with py-40 padding and max-w-3xl headline container
+✓ Mix-blend-difference on SVG line for automatic dark mode color inversion
+✓ Maintained legible text with explicit text-ink dark:text-base classes
+→ Performance optimization and content refinement
 
-June 24, 2025 - Color palette refresh, social nav icons, and hero visual overhaul
+June 24, 2025 - Hero refresh: remove photo, add animated data line & gradient blob
 ```
 
 ## User Preferences

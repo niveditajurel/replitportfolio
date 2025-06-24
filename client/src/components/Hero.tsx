@@ -86,16 +86,37 @@ export function Hero() {
   };
 
   return (
-    <section className="relative overflow-hidden py-32 bg-base dark:bg-ink text-ink dark:text-base min-h-screen flex items-center">
-      {/* Animated gradient blob */}
-      <div className="absolute -top-40 -left-40 w-[480px] h-[480px] bg-gradient-to-br from-accent/40 to-flair/30 rounded-full blur-3xl animate-blob" />
+    <section className="relative overflow-hidden py-40 bg-base dark:bg-ink text-ink dark:text-base min-h-screen flex items-center">
+      {/* Animated gradient blob - top left */}
+      <div className="absolute -top-40 -left-40 w-[480px] h-[480px] bg-gradient-to-br from-accent/40 to-flair/30 rounded-full blur-3xl animate-blob pointer-events-none" />
       
-      <div className="container mx-auto relative z-10 grid lg:grid-cols-2 gap-12 items-center px-4 sm:px-6 lg:px-8" ref={ref}>
+      {/* Secondary gradient blob - bottom right */}
+      <div className="absolute bottom-[-120px] right-[-140px] w-[480px] h-[480px] bg-gradient-to-br from-accent/30 to-flair/30 rounded-full blur-3xl animate-blob pointer-events-none" />
+      
+      <div className="container mx-auto relative z-10 px-4 sm:px-6 lg:px-8" ref={ref}>
         <motion.div
           variants={containerVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
+          className="max-w-3xl w-full lg:w-3/5"
         >
+          {/* Data pulse line SVG */}
+          <svg 
+            className="absolute top-8 left-1/2 -translate-x-1/2 w-96 h-16 pointer-events-none mix-blend-difference opacity-10"
+            viewBox="0 0 384 64"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path 
+              d="M0,32 Q96,8 192,32 T384,32" 
+              stroke="currentColor" 
+              strokeWidth="1" 
+              fill="none"
+              strokeDasharray="4 4"
+              className="animate-pulse-line"
+            />
+          </svg>
+
           {/* Text block */}
           <motion.div variants={itemVariants}>
             <Badge 
@@ -106,7 +127,7 @@ export function Hero() {
               Available for New Opportunities
             </Badge>
             
-            <h1 className="text-5xl lg:text-6xl font-semibold leading-tight mb-4">
+            <h1 className="text-5xl lg:text-6xl font-semibold leading-tight mb-4 text-ink dark:text-base">
               Turning empathy into{" "}
               <span className="text-accent">product&nbsp;strategy</span>
             </h1>
@@ -148,21 +169,6 @@ export function Hero() {
               </Button>
             </div>
           </motion.div>
-        </motion.div>
-
-        {/* Profile photo */}
-        <motion.div
-          variants={itemVariants}
-          className="flex justify-center lg:justify-end"
-        >
-          <div className="relative">
-            <div className="absolute inset-0 bg-gradient-to-br from-accent/20 to-flair/20 rounded-full blur-2xl transform scale-110"></div>
-            <img
-              src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face"
-              alt="Alex Chen profile"
-              className="relative w-64 h-64 lg:w-80 lg:h-80 rounded-full object-cover shadow-2xl"
-            />
-          </div>
         </motion.div>
       </div>
     </section>
