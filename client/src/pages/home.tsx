@@ -1,228 +1,170 @@
-import { useState } from "react";
+import { Link } from "wouter";
+import { useScrollAnimation, useCursorGlow } from "@/hooks/useScrollAnimation";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Checkbox } from "@/components/ui/checkbox";
+import { Badge } from "@/components/ui/badge";
 import { 
-  Zap, 
-  Palette, 
-  Smartphone, 
-  Settings, 
-  Rocket, 
-  Code, 
-  User,
-  Menu,
-  Download,
-  Play,
-  Copy,
-  Check,
-  Github,
-  Twitter
+  ArrowRight, 
+  Download, 
+  Brain, 
+  Heart, 
+  BarChart3, 
+  Users,
+  ExternalLink,
+  Sparkles
 } from "lucide-react";
-import { FaReact, FaGithub, FaTwitter, FaDiscord } from "react-icons/fa";
+
+const featuredProject = {
+  title: "MindfulMoney",
+  subtitle: "Behavioral Finance App",
+  description: "Helping Gen Z build healthy money habits through gamification and behavioral economics principles.",
+  image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop",
+  metrics: {
+    users: "15K+",
+    growth: "85%",
+    impact: "45% improvement in savings rate"
+  },
+  tags: ["FinTech", "Mobile App", "Behavioral Design"]
+};
+
+const coreValues = [
+  {
+    icon: Heart,
+    title: "Human-Centered",
+    description: "Every decision starts with understanding real user needs and pain points.",
+    color: "text-red-500"
+  },
+  {
+    icon: BarChart3,
+    title: "Data-Driven",
+    description: "Combining qualitative insights with quantitative metrics to guide strategy.",
+    color: "text-blue-500"
+  },
+  {
+    icon: Brain,
+    title: "Innovative",
+    description: "Exploring new ways to solve problems and create meaningful value.",
+    color: "text-purple-500"
+  }
+];
 
 export default function Home() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [copied, setCopied] = useState(false);
+  const heroRef = useScrollAnimation();
+  const aboutRef = useScrollAnimation();
+  const projectRef = useScrollAnimation();
+  const valuesRef = useScrollAnimation();
+  const ctaRef = useScrollAnimation();
+  
+  const cursorRef = useCursorGlow();
 
-  const features = [
-    {
-      icon: Zap,
-      title: "Lightning Fast",
-      description: "Vite's instant HMR and optimized builds for the fastest development experience possible.",
-      badge: "⚡ Hot Module Replacement",
-      gradient: "from-blue-50 to-indigo-50",
-      iconBg: "bg-blue-600",
-      border: "border-blue-100 hover:border-blue-200"
-    },
-    {
-      icon: Palette,
-      title: "Tailwind CSS",
-      description: "Utility-first CSS framework with PostCSS and Autoprefixer pre-configured.",
-      badge: "🎨 Utility-First Styling",
-      gradient: "from-emerald-50 to-green-50",
-      iconBg: "bg-emerald-600",
-      border: "border-emerald-100 hover:border-emerald-200"
-    },
-    {
-      icon: Smartphone,
-      title: "Responsive",
-      description: "Mobile-first responsive design patterns and components out of the box.",
-      badge: "📱 Mobile-First Design",
-      gradient: "from-purple-50 to-indigo-50",
-      iconBg: "bg-purple-600",
-      border: "border-purple-100 hover:border-purple-200"
-    },
-    {
-      icon: Settings,
-      title: "Modern Setup",
-      description: "Latest React patterns with hooks, modern JavaScript, and TypeScript support.",
-      badge: "⚙️ Latest Standards",
-      gradient: "from-amber-50 to-orange-50",
-      iconBg: "bg-amber-600",
-      border: "border-amber-100 hover:border-amber-200"
-    },
-    {
-      icon: Rocket,
-      title: "Production Ready",
-      description: "Optimized build configuration for deployment to any hosting platform.",
-      badge: "🚀 Deploy Anywhere",
-      gradient: "from-red-50 to-pink-50",
-      iconBg: "bg-red-600",
-      border: "border-red-100 hover:border-red-200"
-    },
-    {
-      icon: Code,
-      title: "Developer Tools",
-      description: "ESLint, Prettier, and other essential development tools pre-configured.",
-      badge: "🛠️ Best Practices",
-      gradient: "from-slate-50 to-gray-50",
-      iconBg: "bg-slate-600",
-      border: "border-slate-200 hover:border-slate-300"
-    }
-  ];
-
-  const teamMembers = [
-    { name: "John Doe", role: "Software Engineer", color: "blue" },
-    { name: "Jane Smith", role: "Product Designer", color: "emerald" },
-    { name: "Mike Johnson", role: "DevOps Engineer", color: "purple" }
-  ];
-
-  const codeExample = `# Clone the repository
-git clone https://github.com/username/react-vite-starter.git
-
-# Install dependencies
-npm install
-
-# Start development server
-npm run dev
-
-# Build for production
-npm run build`;
-
-  const handleCopyCode = () => {
-    navigator.clipboard.writeText(codeExample);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
+  const handleDownloadResume = () => {
+    console.log("Resume download tracked");
+    // Implement actual download logic
   };
 
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
+  const handleViewProjects = () => {
+    console.log("View projects clicked");
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 font-sans">
-      {/* Header */}
-      <header className="bg-white shadow-sm border-b border-slate-200">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <div className="flex items-center space-x-3">
-              <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-lg flex items-center justify-center">
-                <FaReact className="text-white text-sm" />
-              </div>
-              <div>
-                <h1 className="text-xl font-semibold text-slate-900">React Vite Starter</h1>
-                <p className="text-xs text-slate-500">with Tailwind CSS</p>
-              </div>
-            </div>
-            
-            <nav className="hidden md:flex space-x-8">
-              <button 
-                onClick={() => scrollToSection('features')}
-                className="text-slate-600 hover:text-blue-600 transition-colors duration-200"
-              >
-                Features
-              </button>
-              <button 
-                onClick={() => scrollToSection('components')}
-                className="text-slate-600 hover:text-blue-600 transition-colors duration-200"
-              >
-                Components
-              </button>
-              <button 
-                onClick={() => scrollToSection('setup')}
-                className="text-slate-600 hover:text-blue-600 transition-colors duration-200"
-              >
-                Setup
-              </button>
-              <button 
-                onClick={() => scrollToSection('docs')}
-                className="text-slate-600 hover:text-blue-600 transition-colors duration-200"
-              >
-                Docs
-              </button>
-            </nav>
-            
-            <div className="flex items-center space-x-4">
-              <Button
-                variant="ghost"
-                size="sm"
-                className="md:hidden text-slate-600 hover:text-slate-900"
-                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              >
-                <Menu className="h-5 w-5" />
-              </Button>
-              <Button className="hidden sm:inline-flex items-center bg-slate-900 text-white hover:bg-slate-800">
-                <Github className="mr-2 h-4 w-4" />
-                GitHub
-              </Button>
-            </div>
-          </div>
-        </div>
-      </header>
-
+    <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 py-20">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl md:text-6xl font-bold text-slate-900 mb-6">
-              Modern React Development{" "}
-              <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
-                Made Simple
-              </span>
+      <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-background via-primary/5 to-background overflow-hidden">
+        {/* Background decorative elements */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl floating" />
+          <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-primary/5 rounded-full blur-2xl floating" style={{ animationDelay: '2s' }} />
+        </div>
+
+        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div
+            ref={heroRef.ref}
+            className={`fade-in ${heroRef.isVisible ? "visible" : ""}`}
+          >
+            <div className="mb-6">
+              <Badge 
+                variant="secondary" 
+                className="mb-4 px-4 py-2 text-sm font-medium bg-primary/10 text-primary border-primary/20"
+              >
+                <Sparkles className="w-4 h-4 mr-2" />
+                Available for New Opportunities
+              </Badge>
+            </div>
+            
+            <h1 className="font-display text-5xl md:text-7xl lg:text-8xl font-bold text-foreground mb-8 leading-tight">
+              Curious minds build{" "}
+              <span className="text-gradient">better products</span>
             </h1>
-            <p className="text-xl text-slate-600 mb-8 max-w-2xl mx-auto">
-              A lightning-fast starter template with React, Vite, and Tailwind CSS. 
-              Everything you need to build modern web applications with the best developer experience.
+            
+            <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto mb-12 leading-relaxed">
+              Early-career Product Manager passionate about creating digital experiences 
+              that solve real problems and delight users.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="inline-flex items-center px-8 py-4 bg-blue-600 text-white hover:bg-blue-700 transform hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-xl">
+            
+            <div className="flex flex-col sm:flex-row gap-6 justify-center">
+              <Link href="/projects">
+                <Button 
+                  size="lg" 
+                  className="group inline-flex items-center px-8 py-4 text-lg hover-glow bg-primary text-primary-foreground hover:bg-primary/90 transform hover:scale-105 transition-all duration-200"
+                  onClick={handleViewProjects}
+                >
+                  View Projects
+                  <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </Link>
+              
+              <Button 
+                size="lg" 
+                variant="outline" 
+                className="inline-flex items-center px-8 py-4 text-lg hover-glow border-border/50 bg-background/50 backdrop-blur-sm hover:bg-muted/50 transition-all duration-200"
+                onClick={handleDownloadResume}
+              >
                 <Download className="mr-2 h-5 w-5" />
-                Get Started
-              </Button>
-              <Button size="lg" variant="outline" className="inline-flex items-center px-8 py-4 bg-white text-slate-700 hover:bg-slate-50 border border-slate-200 hover:border-slate-300 transition-all duration-200">
-                <Play className="mr-2 h-5 w-5" />
-                View Demo
+                Download Resume
               </Button>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Features Grid */}
-      <section id="features" className="py-20 bg-white">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Everything You Need</h2>
-            <p className="text-xl text-slate-600 max-w-2xl mx-auto">
-              Pre-configured with the best tools and patterns for modern React development
+      {/* About Preview Section */}
+      <section className="py-20 lg:py-32 bg-background">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div
+            ref={aboutRef.ref}
+            className={`text-center mb-16 fade-in ${aboutRef.isVisible ? "visible" : ""}`}
+          >
+            <h2 className="font-display text-3xl md:text-5xl font-bold text-foreground mb-6">
+              Building products with{" "}
+              <span className="text-gradient">purpose</span>
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+              I believe the best products emerge from deep empathy, rigorous research, 
+              and the courage to challenge assumptions. My approach blends analytical thinking 
+              with creative problem-solving to deliver meaningful user experiences.
             </p>
           </div>
-          
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {features.map((feature, index) => (
-              <Card key={index} className={`bg-gradient-to-br ${feature.gradient} p-8 border ${feature.border} transition-all duration-300 hover:shadow-lg`}>
-                <CardContent className="p-0">
-                  <div className={`w-12 h-12 ${feature.iconBg} rounded-xl flex items-center justify-center mb-6`}>
-                    <feature.icon className="text-white text-xl h-6 w-6" />
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {coreValues.map((value, index) => (
+              <Card
+                key={index}
+                ref={cursorRef}
+                className={`group cursor-glow hover-glow border-border/50 bg-card/50 backdrop-blur-sm transition-all duration-300 slide-in-left ${
+                  aboutRef.isVisible ? "visible" : ""
+                }`}
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                <CardContent className="p-8 text-center">
+                  <div className={`${value.color} mb-6 flex justify-center`}>
+                    <value.icon className="h-8 w-8" />
                   </div>
-                  <h3 className="text-xl font-semibold text-slate-900 mb-3">{feature.title}</h3>
-                  <p className="text-slate-600 mb-4">{feature.description}</p>
-                  <div className="text-sm font-medium text-blue-600">{feature.badge}</div>
+                  <h3 className="font-body font-semibold text-xl text-foreground mb-4">
+                    {value.title}
+                  </h3>
+                  <p className="text-muted-foreground leading-relaxed">
+                    {value.description}
+                  </p>
                 </CardContent>
               </Card>
             ))}
@@ -230,224 +172,138 @@ npm run build`;
         </div>
       </section>
 
-      {/* Component Showcase */}
-      <section id="components" className="py-20 bg-slate-50">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Component Examples</h2>
-            <p className="text-xl text-slate-600 max-w-2xl mx-auto">
-              Showcase of Tailwind CSS components and patterns included in the starter template
+      {/* Featured Project Section */}
+      <section className="py-20 lg:py-32 bg-muted/30">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div
+            ref={projectRef.ref}
+            className={`text-center mb-16 fade-in ${projectRef.isVisible ? "visible" : ""}`}
+          >
+            <h2 className="font-display text-3xl md:text-5xl font-bold text-foreground mb-6">
+              Featured Project
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              A deep dive into one of my recent product case studies
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-8 mb-12">
-            {/* Form Example */}
-            <Card className="bg-white shadow-lg p-8 border border-slate-200">
-              <CardContent className="p-0">
-                <h3 className="text-xl font-semibold text-slate-900 mb-6">Modern Form Components</h3>
-                <form className="space-y-4">
-                  <div>
-                    <Label className="block text-sm font-medium text-slate-700 mb-2">Email Address</Label>
-                    <Input type="email" placeholder="you@example.com" className="w-full" />
-                  </div>
-                  <div>
-                    <Label className="block text-sm font-medium text-slate-700 mb-2">Password</Label>
-                    <Input type="password" placeholder="••••••••" className="w-full" />
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center space-x-2">
-                      <Checkbox id="remember" />
-                      <Label htmlFor="remember" className="text-sm text-slate-600">Remember me</Label>
-                    </div>
-                    <a href="#" className="text-sm text-blue-600 hover:text-blue-700">Forgot password?</a>
-                  </div>
-                  <Button type="submit" className="w-full bg-blue-600 text-white hover:bg-blue-700">
-                    Sign In
-                  </Button>
-                </form>
-              </CardContent>
-            </Card>
-
-            {/* Card Example */}
-            <Card className="bg-white shadow-lg p-8 border border-slate-200">
-              <CardContent className="p-0">
-                <h3 className="text-xl font-semibold text-slate-900 mb-6">Interactive Cards</h3>
-                <div className="space-y-4">
-                  {teamMembers.map((member, index) => (
-                    <Card key={index} className="border border-slate-200 hover:shadow-md transition-shadow cursor-pointer">
-                      <CardContent className="p-4">
-                        <div className="flex items-center space-x-3">
-                          <div className={`w-10 h-10 bg-${member.color}-100 rounded-full flex items-center justify-center`}>
-                            <User className={`text-${member.color}-600 h-5 w-5`} />
-                          </div>
-                          <div>
-                            <h4 className="font-medium text-slate-900">{member.name}</h4>
-                            <p className="text-sm text-slate-500">{member.role}</p>
-                          </div>
-                        </div>
-                      </CardContent>
-                    </Card>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-
-          {/* Code Example */}
-          <Card className="bg-slate-900 text-white p-8">
+          <Card
+            className={`overflow-hidden cursor-glow hover-glow border-border/50 bg-card/50 backdrop-blur-sm slide-in-right ${
+              projectRef.isVisible ? "visible" : ""
+            }`}
+          >
             <CardContent className="p-0">
-              <div className="flex items-center justify-between mb-6">
-                <h3 className="text-xl font-semibold">Quick Start Code</h3>
-                <Button
-                  size="sm"
-                  variant="secondary"
-                  className="bg-slate-700 text-white hover:bg-slate-600"
-                  onClick={handleCopyCode}
-                >
-                  {copied ? <Check className="mr-1 h-4 w-4" /> : <Copy className="mr-1 h-4 w-4" />}
-                  {copied ? 'Copied' : 'Copy'}
-                </Button>
+              <div className="grid lg:grid-cols-2 gap-0">
+                {/* Image */}
+                <div className="relative overflow-hidden">
+                  <img
+                    src={featuredProject.image}
+                    alt={featuredProject.title}
+                    className="w-full h-64 lg:h-full object-cover transition-transform duration-500 hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-transparent" />
+                </div>
+
+                {/* Content */}
+                <div className="p-8 lg:p-12 flex flex-col justify-center">
+                  <div className="flex flex-wrap gap-2 mb-6">
+                    {featuredProject.tags.map((tag, index) => (
+                      <Badge
+                        key={index}
+                        variant="secondary"
+                        className="bg-primary/10 text-primary border-primary/20"
+                      >
+                        {tag}
+                      </Badge>
+                    ))}
+                  </div>
+
+                  <h3 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-3">
+                    {featuredProject.title}
+                  </h3>
+                  <p className="font-body text-xl text-primary font-medium mb-6">
+                    {featuredProject.subtitle}
+                  </p>
+                  <p className="text-muted-foreground mb-8 leading-relaxed text-lg">
+                    {featuredProject.description}
+                  </p>
+
+                  {/* Metrics */}
+                  <div className="grid grid-cols-3 gap-6 mb-8">
+                    <div className="text-center">
+                      <div className="text-2xl font-bold text-primary mb-1">
+                        {featuredProject.metrics.users}
+                      </div>
+                      <div className="text-sm text-muted-foreground">Users</div>
+                    </div>
+                    <div className="text-center">
+                      <div className="text-2xl font-bold text-primary mb-1">
+                        {featuredProject.metrics.growth}
+                      </div>
+                      <div className="text-sm text-muted-foreground">Growth</div>
+                    </div>
+                    <div className="text-center">
+                      <div className="text-2xl font-bold text-primary mb-1">
+                        45%
+                      </div>
+                      <div className="text-sm text-muted-foreground">Impact</div>
+                    </div>
+                  </div>
+
+                  <Link href="/projects">
+                    <Button className="group hover-glow bg-primary text-primary-foreground hover:bg-primary/90">
+                      View Case Study
+                      <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                    </Button>
+                  </Link>
+                </div>
               </div>
-              <Card className="bg-slate-800 p-4">
-                <CardContent className="p-0">
-                  <pre className="text-sm overflow-x-auto">
-                    <code className="text-emerald-400">
-                      {codeExample.split('\n').map((line, index) => (
-                        <div key={index}>
-                          {line.startsWith('#') ? (
-                            <span className="text-slate-400">{line}</span>
-                          ) : line.includes('npm install') ? (
-                            <span className="text-blue-400">{line}</span>
-                          ) : line.includes('npm run dev') ? (
-                            <span className="text-purple-400">{line}</span>
-                          ) : line.includes('npm run build') ? (
-                            <span className="text-amber-400">{line}</span>
-                          ) : (
-                            line
-                          )}
-                        </div>
-                      ))}
-                    </code>
-                  </pre>
-                </CardContent>
-              </Card>
             </CardContent>
           </Card>
         </div>
       </section>
 
-      {/* Setup Instructions */}
-      <section id="setup" className="py-20 bg-white">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Easy Setup</h2>
-            <p className="text-xl text-slate-600 max-w-2xl mx-auto">
-              Get up and running in minutes with our streamlined setup process
+      {/* Call to Action Section */}
+      <section className="py-20 lg:py-32 bg-background">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div
+            ref={ctaRef.ref}
+            className={`fade-in ${ctaRef.isVisible ? "visible" : ""}`}
+          >
+            <h2 className="font-display text-3xl md:text-5xl font-bold text-foreground mb-6">
+              Let's build something{" "}
+              <span className="text-gradient">amazing</span> together
+            </h2>
+            <p className="text-xl text-muted-foreground mb-10 max-w-2xl mx-auto leading-relaxed">
+              I'm always excited to discuss new opportunities, collaborate on interesting projects, 
+              or just chat about the future of product management and technology.
             </p>
-          </div>
-
-          <div className="max-w-4xl mx-auto">
-            <div className="grid md:grid-cols-3 gap-8">
-              {[
-                { step: "1", title: "Clone Repository", description: "Download the starter template from GitHub and navigate to the project directory.", color: "blue" },
-                { step: "2", title: "Install Dependencies", description: "Run npm install to download all required packages and dependencies.", color: "emerald" },
-                { step: "3", title: "Start Developing", description: "Launch the development server and start building your amazing application.", color: "purple" }
-              ].map((item, index) => (
-                <div key={index} className="text-center">
-                  <div className={`w-16 h-16 bg-${item.color}-100 rounded-full flex items-center justify-center mx-auto mb-4`}>
-                    <span className={`text-2xl font-bold text-${item.color}-600`}>{item.step}</span>
-                  </div>
-                  <h3 className="text-lg font-semibold text-slate-900 mb-2">{item.title}</h3>
-                  <p className="text-slate-600">{item.description}</p>
-                </div>
-              ))}
+            
+            <div className="flex flex-col sm:flex-row gap-6 justify-center">
+              <Link href="/contact">
+                <Button 
+                  size="lg" 
+                  className="group inline-flex items-center px-8 py-4 text-lg hover-glow bg-primary text-primary-foreground hover:bg-primary/90 transform hover:scale-105 transition-all duration-200"
+                >
+                  Get in Touch
+                  <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </Link>
+              
+              <Link href="/about">
+                <Button 
+                  size="lg" 
+                  variant="outline" 
+                  className="inline-flex items-center px-8 py-4 text-lg hover-glow border-border/50 bg-background/50 backdrop-blur-sm hover:bg-muted/50 transition-all duration-200"
+                >
+                  <Users className="mr-2 h-5 w-5" />
+                  Learn More About Me
+                </Button>
+              </Link>
             </div>
-
-            <Card className="mt-16 bg-gradient-to-r from-blue-50 to-indigo-50 p-8 border border-blue-100">
-              <CardContent className="p-0">
-                <h3 className="text-xl font-semibold text-slate-900 mb-4">What's Included</h3>
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div>
-                    <h4 className="font-medium text-slate-900 mb-2">Development Tools</h4>
-                    <ul className="space-y-1 text-slate-600">
-                      <li className="flex items-center"><Check className="text-emerald-500 mr-2 h-4 w-4" /> Vite Build Tool</li>
-                      <li className="flex items-center"><Check className="text-emerald-500 mr-2 h-4 w-4" /> Hot Module Replacement</li>
-                      <li className="flex items-center"><Check className="text-emerald-500 mr-2 h-4 w-4" /> ESLint & Prettier</li>
-                      <li className="flex items-center"><Check className="text-emerald-500 mr-2 h-4 w-4" /> TypeScript Support</li>
-                    </ul>
-                  </div>
-                  <div>
-                    <h4 className="font-medium text-slate-900 mb-2">Styling & UI</h4>
-                    <ul className="space-y-1 text-slate-600">
-                      <li className="flex items-center"><Check className="text-emerald-500 mr-2 h-4 w-4" /> Tailwind CSS</li>
-                      <li className="flex items-center"><Check className="text-emerald-500 mr-2 h-4 w-4" /> PostCSS & Autoprefixer</li>
-                      <li className="flex items-center"><Check className="text-emerald-500 mr-2 h-4 w-4" /> Responsive Components</li>
-                      <li className="flex items-center"><Check className="text-emerald-500 mr-2 h-4 w-4" /> Dark Mode Support</li>
-                    </ul>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
           </div>
         </div>
       </section>
-
-      {/* Footer */}
-      <footer id="docs" className="bg-slate-900 text-white py-16">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-4 gap-8">
-            <div className="md:col-span-2">
-              <div className="flex items-center space-x-3 mb-4">
-                <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-lg flex items-center justify-center">
-                  <FaReact className="text-white text-sm" />
-                </div>
-                <h3 className="text-xl font-semibold">React Vite Starter</h3>
-              </div>
-              <p className="text-slate-400 mb-6 max-w-md">
-                The fastest way to build modern React applications with Vite and Tailwind CSS. 
-                Start your next project with confidence.
-              </p>
-              <div className="flex space-x-4">
-                <a href="#" className="w-10 h-10 bg-slate-800 rounded-lg flex items-center justify-center hover:bg-slate-700 transition-colors">
-                  <FaGithub className="h-5 w-5" />
-                </a>
-                <a href="#" className="w-10 h-10 bg-slate-800 rounded-lg flex items-center justify-center hover:bg-slate-700 transition-colors">
-                  <FaTwitter className="h-5 w-5" />
-                </a>
-                <a href="#" className="w-10 h-10 bg-slate-800 rounded-lg flex items-center justify-center hover:bg-slate-700 transition-colors">
-                  <FaDiscord className="h-5 w-5" />
-                </a>
-              </div>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-4">Resources</h4>
-              <ul className="space-y-2 text-slate-400">
-                <li><a href="#" className="hover:text-white transition-colors">Documentation</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Examples</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Tutorials</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Community</a></li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-4">Support</h4>
-              <ul className="space-y-2 text-slate-400">
-                <li><a href="#" className="hover:text-white transition-colors">Help Center</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Bug Reports</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Feature Requests</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Contributing</a></li>
-              </ul>
-            </div>
-          </div>
-          <div className="border-t border-slate-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
-            <p className="text-slate-400 text-sm">© 2024 React Vite Starter. All rights reserved.</p>
-            <div className="flex space-x-6 mt-4 md:mt-0">
-              <a href="#" className="text-slate-400 hover:text-white text-sm transition-colors">Privacy Policy</a>
-              <a href="#" className="text-slate-400 hover:text-white text-sm transition-colors">Terms of Service</a>
-              <a href="#" className="text-slate-400 hover:text-white text-sm transition-colors">License</a>
-            </div>
-          </div>
-        </div>
-      </footer>
     </div>
   );
 }

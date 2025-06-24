@@ -1,31 +1,37 @@
-# Modern Full-Stack React Application
+# Product Manager Portfolio Site
 
 ## Overview
 
-This is a modern full-stack web application built with React, TypeScript, and Express.js. The application uses a clean architecture with a shared schema layer, providing a solid foundation for building scalable web applications. It features a comprehensive UI component library based on shadcn/ui, Tailwind CSS for styling, and Drizzle ORM for database operations.
+This is a modern, personality-rich portfolio website for an early-career Product Manager. Built with React, TypeScript, and Tailwind CSS, the site features immersive scroll interactions, smooth animations, and a sophisticated design that blends inspiration from pixelwrld.co, withequip.com, and hellodani.co. The design emphasizes innovation, empathy, and data-driven thinking while maintaining confidence, cleanliness, and emotional warmth.
 
 ## System Architecture
 
 ### Frontend Architecture
 - **Framework**: React 18 with TypeScript
 - **Build Tool**: Vite for fast development and optimized builds
-- **Styling**: Tailwind CSS with custom design system variables
+- **Styling**: Tailwind CSS with custom design system and portfolio-specific color palette
 - **UI Components**: shadcn/ui component library with Radix UI primitives
-- **State Management**: TanStack React Query for server state management
-- **Routing**: Wouter for lightweight client-side routing
-- **Icons**: Lucide React and React Icons
+- **Theming**: Custom dark/light mode with ThemeProvider and CSS variables
+- **Routing**: Wouter for lightweight client-side routing with 5 main pages
+- **Animations**: Custom scroll-triggered animations with Intersection Observer
+- **Typography**: Inter, DM Sans, and Playfair Display fonts for visual hierarchy
+- **Icons**: Lucide React for consistent iconography
 
-### Backend Architecture
-- **Runtime**: Node.js with TypeScript
-- **Framework**: Express.js for REST API
-- **Database ORM**: Drizzle ORM with PostgreSQL support
-- **Session Management**: connect-pg-simple for PostgreSQL session storage
-- **Development**: tsx for TypeScript execution in development
+### Portfolio Features
+- **Navigation**: Sticky navigation with smooth scrolling and mobile menu
+- **Hero Section**: Bold typography with floating animations and gradient backgrounds
+- **Interactive Elements**: Cursor glow effects, hover animations, and scroll reveals
+- **Project Showcase**: Expandable case studies with metrics and detailed process documentation
+- **Experience Timeline**: Professional experience with achievements and skill tags
+- **Contact System**: Multi-channel contact options with form integration
+- **Responsive Design**: Mobile-first approach with optimized layouts for all devices
 
-### Build and Deployment
-- **Development**: Vite dev server with HMR for frontend, tsx for backend
-- **Production**: Vite build for frontend, esbuild for backend bundling
-- **Deployment**: Configured for Replit's autoscale deployment target
+### Design System
+- **Primary Color**: #2E86AB (hsl(199 89% 48%)) - Portfolio accent color
+- **Typography Scale**: Display headings with Playfair Display, body text with DM Sans
+- **Animation Library**: Custom CSS animations with scroll-triggered visibility
+- **Component System**: Reusable cards, buttons, and layout components
+- **Dark Mode**: Comprehensive theme support with automatic system detection
 
 ## Key Components
 
@@ -95,11 +101,19 @@ This is a modern full-stack web application built with React, TypeScript, and Ex
 - **Environment**: Requires `DATABASE_URL` environment variable
 - **Migrations**: Run with `npm run db:push`
 
-## Changelog
+## Recent Changes
 
 ```
-Changelog:
-- June 24, 2025. Initial setup
+✓ Portfolio site architecture implemented
+✓ Custom color scheme with #2E86AB accent color
+✓ Five-page navigation structure (Home, About, Projects, Experience, Contact)
+✓ Scroll-triggered animations and cursor glow effects
+✓ Theme provider with dark/light mode support
+✓ Typography system with display and body fonts
+✓ Mobile-responsive navigation with sticky header
+→ Portfolio content refinement and optimization
+
+June 24, 2025 - Complete portfolio site transformation from React starter template
 ```
 
 ## User Preferences
