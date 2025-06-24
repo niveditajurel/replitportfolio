@@ -15,6 +15,7 @@ export default {
         ink: '#0F172A',
         accent: '#5B8DEF',
         flair: '#F89676',
+        mint: '#4ADE80',
         background: "var(--background)",
         foreground: "var(--foreground)",
         card: {

@@ -150,6 +150,50 @@
     }
   }
   
+  @keyframes slowPulse {
+    0%, 100% { 
+      transform: scale(1); 
+    }
+    50% { 
+      transform: scale(1.2); 
+    }
+  }
+  
+  @keyframes slowPulseReverse {
+    0%, 100% { 
+      transform: scale(1); 
+    }
+    50% { 
+      transform: scale(0.85); 
+    }
+  }
+  
+  .animate-slowPulse {
+    animation: slowPulse 18s ease-in-out infinite;
+  }
+  
+  .animate-slowPulseReverse {
+    animation: slowPulseReverse 18s ease-in-out infinite;
+  }
+  
+  @keyframes scrollDot {
+    0% {
+      opacity: 0;
+      transform: translateY(-6px);
+    }
+    30% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(6px);
+    }
+  }
+  
+  .animate-scrollDot {
+    animation: scrollDot 2.5s infinite;
+  }
+  
   .fade-in {
     opacity: 0;
     transform: translateY(30px);

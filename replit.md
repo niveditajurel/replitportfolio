@@ -32,6 +32,7 @@ This is a modern, personality-rich portfolio website for an early-career Product
   - Ink: #0F172A (almost-black for text)
   - Accent: #5B8DEF (soft blue primary)
   - Flair: #F89676 (warm salmon highlight)
+  - Mint: #4ADE80 (soft mint for subtle accents)
 - **Typography Scale**: Display headings with Playfair Display, body text with DM Sans
 - **Animation Library**: Custom CSS animations including animated blob with keyframes
 - **Component System**: Reusable cards, buttons, and layout components
@@ -108,16 +109,16 @@ This is a modern, personality-rich portfolio website for an early-career Product
 ## Recent Changes
 
 ```
-✓ Hero refresh: removed profile photo for cleaner, text-focused layout
-✓ Added animated data pulse line SVG with sine-wave pattern (20s loop)
-✓ Secondary gradient blob positioned in bottom-right for visual balance
-✓ Text container optimized: full-width mobile, 60% width on large screens
-✓ Enhanced spacing with py-40 padding and max-w-3xl headline container
-✓ Mix-blend-difference on SVG line for automatic dark mode color inversion
-✓ Maintained legible text with explicit text-ink dark:text-base classes
+✓ Hero ✨ vibrant glows + scroll cue (hellodani style)
+✓ Replaced background with radial-gradient glows using slowPulse animations
+✓ Added playful scroll indicator with animated dot at bottom center
+✓ Enhanced headline with hover effects - "product strategy" changes to flair color
+✓ Button micro-motion with diagonal-slide arrows on hover
+✓ Added mint color (#4ADE80) to palette for future subtle highlights
+✓ Wrapped Hero in isolate container for proper layering
 → Performance optimization and content refinement
 
-June 24, 2025 - Hero refresh: remove photo, add animated data line & gradient blob
+June 24, 2025 - Hero ✨ vibrant glows + scroll cue (hellodani style)
 ```
 
 ## User Preferences

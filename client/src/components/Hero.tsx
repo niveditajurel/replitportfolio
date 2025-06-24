@@ -86,12 +86,12 @@ export function Hero() {
   };
 
   return (
-    <section className="relative overflow-hidden py-40 bg-base dark:bg-ink text-ink dark:text-base min-h-screen flex items-center">
-      {/* Animated gradient blob - top left */}
-      <div className="absolute -top-40 -left-40 w-[480px] h-[480px] bg-gradient-to-br from-accent/40 to-flair/30 rounded-full blur-3xl animate-blob pointer-events-none" />
+    <section className="relative isolate overflow-hidden py-40 bg-base dark:bg-ink text-ink dark:text-base min-h-screen flex items-center">
+      {/* Glow #1 - top left */}
+      <div className="absolute -top-56 -left-48 w-[580px] h-[580px] rounded-full bg-[radial-gradient(circle_at_center,rgba(91,141,239,0.35)_0%,transparent_70%)] blur-[120px] animate-slowPulse pointer-events-none" />
       
-      {/* Secondary gradient blob - bottom right */}
-      <div className="absolute bottom-[-120px] right-[-140px] w-[480px] h-[480px] bg-gradient-to-br from-accent/30 to-flair/30 rounded-full blur-3xl animate-blob pointer-events-none" />
+      {/* Glow #2 - bottom right */}
+      <div className="absolute bottom-[-220px] right-[-260px] w-[680px] h-[680px] rounded-full bg-[radial-gradient(circle_at_center,rgba(248,150,118,0.35)_0%,transparent_70%)] blur-[140px] animate-slowPulseReverse pointer-events-none" />
       
       <div className="container mx-auto relative z-10 px-4 sm:px-6 lg:px-8" ref={ref}>
         <motion.div
@@ -127,9 +127,12 @@ export function Hero() {
               Available for New Opportunities
             </Badge>
             
-            <h1 className="text-5xl lg:text-6xl font-semibold leading-tight mb-4 text-ink dark:text-base">
-              Turning empathy into{" "}
-              <span className="text-accent">product&nbsp;strategy</span>
+            <h1 className="text-5xl lg:text-6xl font-semibold leading-[1.15] mb-4 text-ink dark:text-base">
+              Turning empathy into&nbsp;
+              <span className="relative inline-block transition-colors duration-300 hover:text-flair">
+                product strategy
+                <span className="absolute inset-0 bg-accent/20 rounded-md -z-10 scale-105 blur-sm opacity-0 hover:opacity-100 transition" />
+              </span>
             </h1>
 
             {/* Typewriter */}
@@ -146,30 +149,40 @@ export function Hero() {
 
             <div className="flex flex-col sm:flex-row gap-6">
               <Link href="/projects">
-                <Button 
-                  size="lg" 
-                  className="group relative inline-flex items-center gap-2 px-8 py-4 text-lg rounded-full bg-accent text-base hover:shadow-lg transition-all duration-200 font-semibold cursor-glow hover-glow focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
+                <button 
+                  className="group inline-flex items-center gap-2 px-7 py-3 rounded-full bg-accent text-base font-semibold shadow-lg hover:shadow-xl transition cursor-glow hover-glow focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
                   onClick={handleExploreWork}
                   aria-label="Explore my portfolio projects"
                 >
                   Explore My Work
-                  <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
-                </Button>
+                  <span className="transform translate-x-0 group-hover:translate-x-1 transition">
+                    →
+                  </span>
+                </button>
               </Link>
               
-              <Button 
-                size="lg" 
-                variant="outline" 
-                className="inline-flex items-center gap-2 px-8 py-4 text-lg rounded-full border border-ink/40 dark:border-base/40 hover:bg-ink/5 dark:hover:bg-base/10 transition-all duration-200 cursor-glow hover-glow focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
+              <button 
+                className="group inline-flex items-center gap-2 px-7 py-3 rounded-full border border-ink/40 dark:border-base/40 hover:bg-ink/5 dark:hover:bg-base/10 transition-all duration-200 cursor-glow hover-glow focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
                 onClick={handleDownloadResume}
                 aria-label="Download my resume PDF"
               >
                 <Download className="w-5 h-5" />
                 Download Resume
-              </Button>
+                <span className="transform translate-x-0 group-hover:translate-x-1 transition opacity-0 group-hover:opacity-100">
+                  →
+                </span>
+              </button>
             </div>
           </motion.div>
         </motion.div>
+      </div>
+
+      {/* Scroll cue */}
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-ink/60 dark:text-base/60">
+        <div className="w-[22px] h-[38px] rounded-xl border border-current flex justify-center">
+          <div className="w-[4px] h-[8px] bg-current rounded-full animate-scrollDot" />
+        </div>
+        <span className="text-xs tracking-wide">scroll</span>
       </div>
     </section>
   );
